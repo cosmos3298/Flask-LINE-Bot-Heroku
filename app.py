@@ -36,5 +36,5 @@ def handle_message(event):
     get_message = event.message.text
 
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}" + " I'm a mocking jay. haha!")
+    reply = TextSendMessage(text=f"{get_message}" + " I'm a mockingjay. haha!")
     line_bot_api.reply_message(event.reply_token, reply)
