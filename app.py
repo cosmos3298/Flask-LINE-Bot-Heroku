@@ -14,7 +14,7 @@ import gspread
 gs = gspread.service_account(filename='google-credentials.json')
 sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
 wst = sht.worksheet("表單回應 1")
-getgsvalue = workbook.get('A15')
+getgsvalue = workbook.get('A15')[0][0]
 # Testing groud End
 
 
