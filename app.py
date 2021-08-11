@@ -11,9 +11,17 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 # import google sheet library
 import gspread
 import json
+from oauth2client.service_account import ServiceAccountCredentials
+
 # Google Sheet Testing groud 
-json_creds = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-gs = gspread.service_account(json_creds)
+scopes = ['https://spreadsheets.google.com/feeds']
+json_creds = os.getenv("GOOGLE_CREDENTIALS")
+
+creds_dict = json.loads(json_creds)
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
+client = gspread.authorize(creds)
+
 sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
 wst = sht.worksheet("表單回應 1")
 getgsvalue = workbook.get('A15')[0][0]
