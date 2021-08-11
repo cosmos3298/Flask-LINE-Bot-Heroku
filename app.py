@@ -10,8 +10,13 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 # import google sheet library
 import gspread
-#
+# Google Sheet Testing groud End
 gs = gspread.service_account(filename='google-credentials.json')
+sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
+wst = sht.worksheet("表單回應 1")
+getgsvalue = workbook.get('A15')
+# Testing groud End
+
 
 app = Flask(__name__)
 
@@ -41,5 +46,5 @@ def handle_message(event):
     get_message = event.message.text
 
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}" + "." +" I'm a mockingjay. haha!")
+    reply = TextSendMessage(text=f"{get_message}" + "." +" I'm a mockingjay. haha!\n "+getgsvalue)
     line_bot_api.reply_message(event.reply_token, reply)
