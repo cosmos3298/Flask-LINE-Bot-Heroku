@@ -12,7 +12,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import gspread
 import json
 # Google Sheet Testing groud 
-json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
+json_creds = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 gs = gspread.service_account(json_creds)
 sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
 wst = sht.worksheet("表單回應 1")
