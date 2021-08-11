@@ -11,7 +11,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 # import google sheet library
 import gspread
 #
-gs = gspread.service_account(Filename='google-credentials.json')
+gs = gspread.service_account(filename='google-credentials.json')
 
 app = Flask(__name__)
 
