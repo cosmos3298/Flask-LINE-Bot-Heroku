@@ -10,8 +10,10 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 # import google sheet library
 import gspread
-# Google Sheet Testing groud End
-gs = gspread.service_account(GOOGLE_APPLICATION_CREDENTIALS)
+import json
+# Google Sheet Testing groud 
+json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
+gs = gspread.service_account(json_creds)
 sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
 wst = sht.worksheet("表單回應 1")
 getgsvalue = workbook.get('A15')[0][0]
