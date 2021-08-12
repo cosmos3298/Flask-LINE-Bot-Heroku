@@ -24,7 +24,7 @@ gc = gspread.authorize(creds)
 
 sht =  gc.open_by_key('1kWXfTRtDYIIXa3Dr-0ack5-LHYKH5_7ahB8BCIhbWHw')
 wst = sht.worksheet("表單回應 1")
-getgsvalue = workbook.get('A15')[0][0]
+# getgsvalue = workbook.get('A15')[0][0]
 # Testing groud End
 
 
@@ -56,5 +56,5 @@ def handle_message(event):
     get_message = event.message.text
 
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}" + "." +" I'm a mockingjay. haha!\n "+getgsvalue)
+    reply = TextSendMessage(text=f"{get_message}" + "." +" I'm a mockingjay. haha!\n ")
     line_bot_api.reply_message(event.reply_token, reply)
